@@ -1,25 +1,37 @@
+class node:
+    def __init__(self, data, next = None):
+        self.data = data
+        self.next = next
+
+
 class stack:
     def __init__(self):
-        self.data = list()
+        self.head = None
 
     def isempty(self):
-        return len(self.data) 
+        if (not self.head):
+            status = True
+        else:
+            status = False
+        return status
+
+    def push(self, data):
+        newnode = node(data)
+
+        if(self.isempty()):
+            self.head = newnode
+
+        else:
+            newnode.next = self.head
+            self.head = newnode
 
     def pop(self):
-        assert self.isempty(), "stack is empty"
-        print(self.data.pop())
-        return self.data.pop()
-    
+        assert self.isempty(),  "cannot pop empty stack"
+        temp = self.head
+        self.head = self.heah.next
+        print(temp)
 
-    def push (self, item):
-        self.data.append(item)
 
-def main():
-
-    x = stack()
-    x.push(9)
-    x.push(8)
-    x.pop()
-    
-
-main()
+x = stack()
+x.push(3)
+x.push(2)
